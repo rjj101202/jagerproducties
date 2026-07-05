@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-coal: #0b0a08;
+  --color-panel: #161310;
+  --color-ink: #ede8dc;
+  --color-dim: #a49c8a;
+  --color-line: #2c2720;
+  --color-amber: #efa537;
+  --color-rec: #ff4b33;
+  --font-display: var(--font-oswald);
+  --font-sans: var(--font-archivo);
+  --font-mono: var(--font-plex-mono);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-coal);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+::selection {
+  background: var(--color-amber);
+  color: var(--color-coal);
+}
+
+/* --- Reveal on scroll (alleen verbergen als JS actief is) --- */
+html.js .reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+html.js .reveal.is-on {
+  opacity: 1;
+  transform: none;
+}
+
+/* --- REC blink --- */
+@keyframes rec-blink {
+  0%, 60% { opacity: 1; }
+  61%, 100% { opacity: 0.15; }
+}
+.rec-dot {
+  animation: rec-blink 1.6s steps(1) infinite;
+}
+
+/* --- Hero title rise --- */
+@keyframes title-rise {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: none; }
+}
+.title-rise {
+  animation: title-rise 0.9s ease both;
+}
+.title-rise-late {
+  animation: title-rise 0.9s 0.25s ease both;
+}
+
+/* --- Film grain (subtle, pure CSS) --- */
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.5;
+  background-image: radial-gradient(rgba(237, 232, 220, 0.055) 1px, transparent 1px);
+  background-size: 3px 3px;
+  mix-blend-mode: overlay;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  html.js .reveal { opacity: 1; transform: none; transition: none; }
+  .rec-dot { animation: none; }
+  .title-rise, .title-rise-late { animation: none; opacity: 1; transform: none; }
+}
