@@ -3,6 +3,7 @@ export const SITE_URL = "https://jagerproducties.nl";
 export const EMAIL = "info@jagerproducties.nl";
 /** Placeholder — Remy vult het echte nummer in. */
 export const TEL_PLACEHOLDER = "06 — vul in";
+export const KVK = "90470826";
 
 export const MAILTO = `mailto:${EMAIL}?subject=${encodeURIComponent(
   "Videoproject — laten we praten"

@@ -1,4 +1,4 @@
-import { EMAIL, TEL_PLACEHOLDER } from "@/lib/site";
+import { EMAIL, KVK, TEL_PLACEHOLDER } from "@/lib/site";
 
 const CREDITS: [string, string][] = [
   ["Concept & regie", "Remy Jager"],
@@ -47,6 +47,9 @@ export default function Footer() {
         <div className="mt-14 flex flex-col items-center gap-2 border-t border-line pt-8 text-center">
           <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-dim">
             © 2026 Jager Producties — videoproductie voor bedrijven &amp; events
+          </p>
+          <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-dim">
+            KVK {KVK}
           </p>
           <p className="font-mono text-[11px] tracking-[0.06em] text-dim/80">
             Ook een website nodig?{" "}
