@@ -15,9 +15,8 @@ export const MAILTO = `mailto:${EMAIL}?subject=${encodeURIComponent(
 export const MEDIA = {
   /** Hero: eigen intro-video Jager Producties (public/intro.mp4) */
   heroVideo: "/intro.mp4",
-  /** Poster/fallback hero: monitor over de schouder op set (Pexels 6714952) */
-  heroPoster:
-    "https://images.pexels.com/photos/6714952/pexels-photo-6714952.jpeg?auto=compress&cs=tinysrgb&w=1600",
+  /** Poster/fallback hero: openingsframe uit de eigen intro (public/hero-poster.jpg) */
+  heroPoster: "/hero-poster.jpg",
   /** Events: luchtshot concertpubliek (Tom Fisk, Pexels 3941289) */
   eventsVideo:
     "https://videos.pexels.com/video-files/3941289/3941289-sd_960_540_30fps.mp4",
