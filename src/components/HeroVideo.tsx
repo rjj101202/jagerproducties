@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 /**
  * Achtergrondvideo met poster-fallback.
@@ -19,6 +19,7 @@ export default function HeroVideo({
   poster: string;
   className?: string;
 }) {
+  const videoRef = useRef<HTMLVideoElement>(null);
   const [motionOk, setMotionOk] = useState(false);
   const [playing, setPlaying] = useState(false);
 
@@ -40,6 +41,7 @@ export default function HeroVideo({
       />
       {motionOk && (
         <video
+          ref={videoRef}
           src={src}
           poster={poster}
           muted
@@ -48,6 +50,14 @@ export default function HeroVideo({
           playsInline
           preload="metadata"
           onPlaying={() => setPlaying(true)}
+          onEnded={() => {
+            // Fallback: sommige browsers negeren `loop` bij autoplay.
+            const v = videoRef.current;
+            if (v) {
+              v.currentTime = 0;
+              void v.play();
+            }
+          }}
           className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${
             playing ? "opacity-100" : "opacity-0"
           }`}
