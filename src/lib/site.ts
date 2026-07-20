@@ -13,9 +13,8 @@ export const MAILTO = `mailto:${EMAIL}?subject=${encodeURIComponent(
  * geverifieerd (HTTP 200) vóór gebruik.
  */
 export const MEDIA = {
-  /** Hero: videograaf + regisseur op set (Ron Lach, Pexels 8089118) */
-  heroVideo:
-    "https://videos.pexels.com/video-files/8089118/8089118-hd_1366_720_25fps.mp4",
+  /** Hero: eigen intro-video Jager Producties (public/intro.mp4) */
+  heroVideo: "/intro.mp4",
   /** Poster/fallback hero: monitor over de schouder op set (Pexels 6714952) */
   heroPoster:
     "https://images.pexels.com/photos/6714952/pexels-photo-6714952.jpeg?auto=compress&cs=tinysrgb&w=1600",
