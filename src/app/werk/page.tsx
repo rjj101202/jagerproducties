@@ -17,6 +17,8 @@ type CaseItem = {
   alt?: string;
   /** Embed-URL — vervangt de foto door een videospeler in het frame. */
   video?: string;
+  /** Verticale (9:16) video — frame wordt smaller en gecentreerd. */
+  portrait?: boolean;
   meta: string;
   body: string;
   link?: { href: string; label: string };
@@ -44,6 +46,21 @@ const CASES: CaseItem[] = [
   {
     tc: "SELECT 02",
     client: "FC De Bilt",
+    title: "Insta-video bekerwedstrijd",
+    video:
+      "https://player.vimeo.com/video/1006936645?title=0&byline=0&portrait=0&dnt=1",
+    portrait: true,
+    meta: "SPORT · SOCIAL",
+    body: "Insta-video voor een belangrijke bekerwedstrijd van FC De Bilt. Inclusief dronebeelden en audiomontage.",
+    facts: [
+      "Opdrachtgever: FC De Bilt",
+      "Genre: social video / sport",
+      "Rol: drone, camera, audiomontage",
+    ],
+  },
+  {
+    tc: "SELECT 03",
+    client: "FC De Bilt",
     title: "Sportieve clubvideo",
     img: MEDIA.floodlitPitch,
     alt: "Verlicht amateurvoetbalveld in de avond",
@@ -52,7 +69,7 @@ const CASES: CaseItem[] = [
     facts: ["Opdrachtgever: FC De Bilt", "Genre: clubvideo / sport", "Rol: concept, camera, montage"],
   },
   {
-    tc: "SELECT 03",
+    tc: "SELECT 04",
     client: "De Maaltuin",
     title: "Horecavideo",
     img: MEDIA.openKitchen,
@@ -75,26 +92,34 @@ export default function WerkPage() {
       <section className="px-5 py-16 md:px-8 md:py-24">
         <div className="mx-auto max-w-6xl space-y-24">
           {CASES.map((c) => (
-            <Reveal key={c.client}>
+            <Reveal key={c.tc}>
               <article>
-                <Frame
-                  src={c.img}
-                  alt={c.alt}
-                  caption={`${c.client} — ${c.title}`}
-                  meta={c.meta}
-                  ratio={c.video ? "aspect-video" : undefined}
-                >
-                  {c.video ? (
-                    <iframe
-                      src={c.video}
-                      title={`${c.client} — ${c.title}`}
-                      loading="lazy"
-                      allow="autoplay; fullscreen; picture-in-picture"
-                      allowFullScreen
-                      className="absolute inset-0 h-full w-full"
-                    />
-                  ) : undefined}
-                </Frame>
+                <div className={c.portrait ? "mx-auto max-w-[400px]" : undefined}>
+                  <Frame
+                    src={c.img}
+                    alt={c.alt}
+                    caption={`${c.client} — ${c.title}`}
+                    meta={c.meta}
+                    ratio={
+                      c.video
+                        ? c.portrait
+                          ? "aspect-[9/16]"
+                          : "aspect-video"
+                        : undefined
+                    }
+                  >
+                    {c.video ? (
+                      <iframe
+                        src={c.video}
+                        title={`${c.client} — ${c.title}`}
+                        loading="lazy"
+                        allow="autoplay; fullscreen; picture-in-picture"
+                        allowFullScreen
+                        className="absolute inset-0 h-full w-full"
+                      />
+                    ) : undefined}
+                  </Frame>
+                </div>
                 <div className="mt-8 grid gap-8 md:grid-cols-[1fr_280px]">
                   <div>
                     <p className="font-mono text-sm text-amber">{c.tc}</p>
@@ -142,7 +167,7 @@ export default function WerkPage() {
           <Reveal>
             <div className="border border-dashed border-line px-6 py-12 text-center md:px-12 md:py-16">
               <p className="font-mono text-[12px] uppercase tracking-[0.22em] text-amber">
-                Select 04 — nog leeg
+                Select 05 — nog leeg
               </p>
               <h2 className="mx-auto mt-4 max-w-2xl font-display text-3xl uppercase leading-tight tracking-wide sm:text-4xl">
                 Deze plek is gereserveerd voor jouw productie
