@@ -114,7 +114,7 @@ export default function WerkPage() {
       <PageHeader
         kicker="Werk"
         title="De selects"
-        intro="Wat hier staat, is echt gemaakt en echt geleverd — geen opgeklopte logowall. De rol is nog jong en groeit per productie. Kwaliteit boven kwantiteit, elke keer."
+        intro="Ons werk, variërend van bedrijfsvideo's tot testimonials en van social media campagnes tot aftermovies."
       />
 
       <section className="px-5 py-16 md:px-8 md:py-24">
