@@ -54,8 +54,8 @@ export default function Home() {
             <Slate
               scene="01"
               tc="00:00:12:00"
-              title="Twee soorten films, één maker"
-              intro="Bedrijven en events vragen elk om een ander ritme. Kies je kant van de affiche."
+              title="Bedrijfs- of Event Video's"
+              intro="We bieden twee soorten video's aan: voor bedrijven of events. Kijk voor de mogelijkheden op de pagina's hieronder."
             />
           </Reveal>
 
