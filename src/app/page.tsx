@@ -171,6 +171,22 @@ export default function Home() {
           <div className="mt-12 space-y-14">
             <Reveal>
               <Frame
+                caption="FC De Bilt — sfeerimpressie"
+                meta="SPORT · CLUB"
+                ratio="aspect-video"
+              >
+                <iframe
+                  src="https://player.vimeo.com/video/1014743036?title=0&byline=0&portrait=0&dnt=1#t=8s"
+                  title="FC De Bilt — sfeerimpressie door Jager Producties"
+                  loading="lazy"
+                  allow="autoplay; fullscreen; picture-in-picture"
+                  allowFullScreen
+                  className="absolute inset-0 h-full w-full"
+                />
+              </Frame>
+            </Reveal>
+            <Reveal>
+              <Frame
                 caption="Winkelcentrum Bisonspoor — bedrijfsfilm"
                 meta="BEDRIJF · RETAIL"
                 ratio="aspect-video"
@@ -184,14 +200,6 @@ export default function Home() {
                   className="absolute inset-0 h-full w-full"
                 />
               </Frame>
-            </Reveal>
-            <Reveal>
-              <Frame
-                src={MEDIA.openKitchen}
-                alt="Open restaurantkeuken met grill en koks in warm licht"
-                caption="De Maaltuin — horecavideo"
-                meta="HORECA · SFEER"
-              />
             </Reveal>
           </div>
 
