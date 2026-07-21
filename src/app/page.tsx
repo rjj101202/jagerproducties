@@ -1,31 +1,8 @@
 import Link from "next/link";
 import HeroVideo from "@/components/HeroVideo";
 import Reveal from "@/components/Reveal";
-import { ArrowLink, CtaBand, Frame, NumberRow, Slate } from "@/components/ui";
+import { ArrowLink, CtaBand, Frame, Slate } from "@/components/ui";
 import { MAILTO, MEDIA } from "@/lib/site";
-
-const STEPS: { nr: string; title: string; body: string }[] = [
-  {
-    nr: "STAP 01",
-    title: "Gesprek & concept",
-    body: "We bellen of drinken koffie. Wat moet de video doen, voor wie, en waar ga je hem inzetten? Daarna krijg je een concreet voorstel: concept, planning en prijs.",
-  },
-  {
-    nr: "STAP 02",
-    title: "De draaidag",
-    body: "Eén videograaf, compacte set, geen circus. Ik werk met een shotlist maar houd ruimte voor het moment — daar zitten meestal de beste beelden.",
-  },
-  {
-    nr: "STAP 03",
-    title: "Montage & kleur",
-    body: "Monteren, kleurgraden, geluid en muziek. Je kijkt tussentijds mee en er zit standaard een feedbackronde in — geen verrassingen bij oplevering.",
-  },
-  {
-    nr: "STAP 04",
-    title: "Oplevering in elk formaat",
-    body: "De hoofdfilm plus versies voor waar je publiek zit: 16:9 voor site en presentatie, 9:16 en 1:1 voor social. Klaar om te publiceren.",
-  },
-];
 
 export default function Home() {
   return (
@@ -209,45 +186,22 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ——— SCENE 03: werkwijze ——— */}
-      <section className="px-5 py-20 md:px-8 md:py-28">
-        <div className="mx-auto max-w-6xl">
-          <Reveal>
-            <Slate
-              scene="03"
-              tc="00:02:48:05"
-              title="Van eerste idee tot laatste frame"
-              intro="Geen productiehuis met tien schakels — je werkt van begin tot eind met dezelfde maker."
-            />
-          </Reveal>
-          <div className="mt-12 border-b border-line">
-            {STEPS.map((s, i) => (
-              <Reveal key={s.nr} delay={i * 80}>
-                <NumberRow index={s.nr} title={s.title}>
-                  <p>{s.body}</p>
-                </NumberRow>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ——— SCENE 04: de maker ——— */}
+      {/* ——— SCENE 03: de maker ——— */}
       <section className="border-t border-line bg-panel/40 px-5 py-20 md:px-8 md:py-28">
         <div className="mx-auto grid max-w-6xl items-center gap-12 md:grid-cols-2">
           <Reveal>
             <Frame
-              src={MEDIA.videographerOutdoor}
-              alt="Videograaf met camera aan het werk op locatie"
-              caption="Achter de camera"
-              meta="ON LOCATION"
+              src={MEDIA.remyPortrait}
+              alt="Portret van Remy Jager"
+              caption="Remy Jager"
+              meta="DE MAKER"
               ratio="aspect-[4/3]"
             />
           </Reveal>
           <Reveal delay={120}>
             <div>
               <p className="font-mono text-[12px] uppercase tracking-[0.22em] text-amber">
-                Scene 04 — De maker
+                Scene 03 — De maker
               </p>
               <h2 className="mt-4 font-display text-4xl uppercase leading-[1.05] tracking-wide sm:text-5xl">
                 Remy Jager

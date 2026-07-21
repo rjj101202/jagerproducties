@@ -18,6 +18,8 @@ export const MEDIA = {
   heroVideo: "/intro.mp4",
   /** Poster/fallback hero: openingsframe uit de eigen intro (public/hero-poster.jpg) */
   heroPoster: "/hero-poster.jpg",
+  /** Portret Remy Jager (public/remy.jpg) */
+  remyPortrait: "/remy.jpg",
   /** Events: luchtshot concertpubliek (Tom Fisk, Pexels 3941289) */
   eventsVideo:
     "https://videos.pexels.com/video-files/3941289/3941289-sd_960_540_30fps.mp4",
