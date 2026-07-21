@@ -31,9 +31,8 @@ export default function Home() {
             blijft hangen
           </h1>
           <p className="title-rise-late mt-6 max-w-xl text-lg leading-relaxed text-ink/85">
-            Van bedrijfsfilm tot aftermovie: Jager Producties draait, monteert
-            en levert video waar je publiek naar blíjft kijken. Eén maker, van
-            eerste idee tot laatste frame.
+            Van bedrijfsfilms tot aftermovie. Wij komen graag bij jullie langs
+            om jullie verhaal vast te leggen.
           </p>
           <div className="title-rise-late mt-9 flex flex-wrap items-center gap-x-8 gap-y-4">
             <a
