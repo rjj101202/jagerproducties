@@ -171,11 +171,19 @@ export default function Home() {
           <div className="mt-12 space-y-14">
             <Reveal>
               <Frame
-                src={MEDIA.floodlitPitch}
-                alt="Verlicht amateurvoetbalveld in de avond"
-                caption="FC De Bilt — sportieve clubvideo"
-                meta="SPORT · CLUB"
-              />
+                caption="Winkelcentrum Bisonspoor — bedrijfsfilm"
+                meta="BEDRIJF · RETAIL"
+                ratio="aspect-video"
+              >
+                <iframe
+                  src="https://player.vimeo.com/video/996175955?title=0&byline=0&portrait=0&dnt=1"
+                  title="Winkelcentrum Bisonspoor — bedrijfsfilm door Jager Producties"
+                  loading="lazy"
+                  allow="autoplay; fullscreen; picture-in-picture"
+                  allowFullScreen
+                  className="absolute inset-0 h-full w-full"
+                />
+              </Frame>
             </Reveal>
             <Reveal>
               <Frame
