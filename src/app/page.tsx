@@ -31,8 +31,8 @@ export default function Home() {
             blijft hangen
           </h1>
           <p className="title-rise-late mt-6 max-w-xl text-lg leading-relaxed text-ink/85">
-            Ik ben een videograaf uit Utrecht die met veel passie voor jouw
-            bedrijf of event de allertofste video neerzet!
+            Een videoproductiebedrijf uit Utrecht, dat met veel passie en
+            plezier voor jou je event of bedrijf vastlegt. Tot snel!
           </p>
           <div className="title-rise-late mt-9 flex flex-wrap items-center gap-x-8 gap-y-4">
             <a
