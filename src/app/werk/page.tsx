@@ -74,6 +74,20 @@ const CASES: CaseItem[] = [
   },
   {
     tc: "SELECT 04",
+    client: "Kunstmarkt De Bilt",
+    title: "Sfeerimpressie",
+    video:
+      "https://player.vimeo.com/video/1011277435?title=0&byline=0&portrait=0&dnt=1",
+    meta: "EVENT · SFEER",
+    body: "Sfeerimpressie van de Kunstmarkt in De Bilt: de kramen, de kunst en de bezoekers, gevangen in een korte film.",
+    facts: [
+      "Opdrachtgever: Kunstmarkt De Bilt",
+      "Genre: sfeerimpressie / event",
+      "Rol: camera, montage",
+    ],
+  },
+  {
+    tc: "SELECT 05",
     client: "FC De Bilt",
     title: "Sportieve clubvideo",
     img: MEDIA.floodlitPitch,
@@ -83,7 +97,7 @@ const CASES: CaseItem[] = [
     facts: ["Opdrachtgever: FC De Bilt", "Genre: clubvideo / sport", "Rol: concept, camera, montage"],
   },
   {
-    tc: "SELECT 05",
+    tc: "SELECT 06",
     client: "De Maaltuin",
     title: "Horecavideo",
     img: MEDIA.openKitchen,
@@ -181,7 +195,7 @@ export default function WerkPage() {
           <Reveal>
             <div className="border border-dashed border-line px-6 py-12 text-center md:px-12 md:py-16">
               <p className="font-mono text-[12px] uppercase tracking-[0.22em] text-amber">
-                Select 06 — nog leeg
+                Select 07 — nog leeg
               </p>
               <h2 className="mx-auto mt-4 max-w-2xl font-display text-3xl uppercase leading-tight tracking-wide sm:text-4xl">
                 Deze plek is gereserveerd voor jouw productie
