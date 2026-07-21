@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Reveal from "@/components/Reveal";
-import { ArrowLink, CtaBand, Frame, PageHeader } from "@/components/ui";
+import { CtaBand, Frame, PageHeader } from "@/components/ui";
 import { MEDIA } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -191,26 +191,6 @@ export default function WerkPage() {
             </Reveal>
           ))}
 
-          {/* Eerlijk over de rest van de rol */}
-          <Reveal>
-            <div className="border border-dashed border-line px-6 py-12 text-center md:px-12 md:py-16">
-              <p className="font-mono text-[12px] uppercase tracking-[0.22em] text-amber">
-                Select 07 — nog leeg
-              </p>
-              <h2 className="mx-auto mt-4 max-w-2xl font-display text-3xl uppercase leading-tight tracking-wide sm:text-4xl">
-                Deze plek is gereserveerd voor jouw productie
-              </h2>
-              <p className="mx-auto mt-5 max-w-xl text-[16px] leading-relaxed text-dim">
-                Ik zet hier alleen werk neer dat ik echt heb gemaakt. Liever een
-                korte, eerlijke rol dan een pagina vol geleende logo&apos;s.
-                Beeldmateriaal van de volgende productie kan hier over een paar
-                weken staan.
-              </p>
-              <ArrowLink href="/contact" className="mt-8">
-                Claim deze plek
-              </ArrowLink>
-            </div>
-          </Reveal>
         </div>
       </section>
 
