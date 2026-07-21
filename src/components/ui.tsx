@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { MAILTO, TEL_PLACEHOLDER } from "@/lib/site";
+import { MAILTO, TEL } from "@/lib/site";
 
 /** Sectiekop als filmslate: scene-nummer + timecode + titel. */
 export function Slate({
@@ -171,7 +171,7 @@ export function CtaBand({
             <span aria-hidden>▶</span> Mail: info@jagerproducties.nl
           </a>
           <span className="font-mono text-[13px] uppercase tracking-[0.18em] text-dim">
-            of bel: <span className="text-ink">{TEL_PLACEHOLDER}</span>
+            of bel: <span className="text-ink">{TEL}</span>
           </span>
         </div>
       </div>

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Reveal from "@/components/Reveal";
 import { NumberRow, PageHeader } from "@/components/ui";
-import { MAILTO, TEL_PLACEHOLDER } from "@/lib/site";
+import { MAILTO, TEL } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Contact — plan een kort gesprek",
@@ -41,7 +41,7 @@ export default function ContactPage() {
                     Bellen mag ook
                   </p>
                   <p className="mt-2 font-display text-2xl uppercase tracking-wide">
-                    {TEL_PLACEHOLDER}
+                    {TEL}
                   </p>
                 </div>
                 <div>

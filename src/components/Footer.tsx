@@ -1,4 +1,4 @@
-import { EMAIL, KVK, TEL_PLACEHOLDER } from "@/lib/site";
+import { EMAIL, KVK, TEL } from "@/lib/site";
 
 const CREDITS: [string, string][] = [
   ["Concept & regie", "Remy Jager"],
@@ -40,7 +40,7 @@ export default function Footer() {
             {EMAIL}
           </a>
           <p className="mt-2 font-mono text-[12px] uppercase tracking-[0.18em] text-dim">
-            Tel: {TEL_PLACEHOLDER} · heel Nederland
+            Tel: {TEL} · heel Nederland
           </p>
         </div>
 
