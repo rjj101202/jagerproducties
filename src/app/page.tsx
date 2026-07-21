@@ -207,10 +207,12 @@ export default function Home() {
                 Remy Jager
               </h2>
               <p className="mt-5 text-[17px] leading-relaxed text-dim">
-                Videograaf. Ik geloof in klein en dichtbij: één maker die je
-                verhaal snapt, zelf draait en zelf monteert. Daardoor blijft de
-                lijn kort en het beeld persoonlijk — van het eerste
-                belletje tot de master die je online zet.
+                Als mensen vroeger aan me vroegen wat ik wilde worden, zei ik
+                altijd: &ldquo;Regisseur!&rdquo;, en ondanks dat ik dat niet ben
+                geworden, heb ik wel altijd veel passie gehad voor films en
+                video. Ik vind het een prachtig medium, dat er voor zorgt dat je
+                een mooi verhaal kunt delen met veel mensen, zonder dat je die
+                mensen persoonlijk hebt gesproken.
               </p>
               <ArrowLink href="/over" className="mt-7">
                 Meer over de maker
