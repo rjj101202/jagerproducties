@@ -60,6 +60,20 @@ const CASES: CaseItem[] = [
   },
   {
     tc: "SELECT 03",
+    client: "Swim to Fight Cancer",
+    title: "Aftermovie Stichtse Vecht",
+    video:
+      "https://player.vimeo.com/video/1014734945?title=0&byline=0&portrait=0&dnt=1",
+    meta: "EVENT · AFTERMOVIE",
+    body: "Aftermovie van Swim to Fight Cancer in Stichtse Vecht, het zwemevenement waar deelnemers geld ophalen voor de strijd tegen kanker. Ook hier met dronebeelden.",
+    facts: [
+      "Opdrachtgever: Swim to Fight Cancer Stichtse Vecht",
+      "Genre: aftermovie / event",
+      "Rol: drone, camera, montage",
+    ],
+  },
+  {
+    tc: "SELECT 04",
     client: "FC De Bilt",
     title: "Sportieve clubvideo",
     img: MEDIA.floodlitPitch,
@@ -69,7 +83,7 @@ const CASES: CaseItem[] = [
     facts: ["Opdrachtgever: FC De Bilt", "Genre: clubvideo / sport", "Rol: concept, camera, montage"],
   },
   {
-    tc: "SELECT 04",
+    tc: "SELECT 05",
     client: "De Maaltuin",
     title: "Horecavideo",
     img: MEDIA.openKitchen,
@@ -167,7 +181,7 @@ export default function WerkPage() {
           <Reveal>
             <div className="border border-dashed border-line px-6 py-12 text-center md:px-12 md:py-16">
               <p className="font-mono text-[12px] uppercase tracking-[0.22em] text-amber">
-                Select 05 — nog leeg
+                Select 06 — nog leeg
               </p>
               <h2 className="mx-auto mt-4 max-w-2xl font-display text-3xl uppercase leading-tight tracking-wide sm:text-4xl">
                 Deze plek is gereserveerd voor jouw productie
