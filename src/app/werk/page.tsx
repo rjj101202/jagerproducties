@@ -6,12 +6,43 @@ import { MEDIA } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Werk — producties van Jager Producties",
   description:
-    "Bekijk producties van Jager Producties, waaronder de sportieve clubvideo voor FC De Bilt en de horecavideo voor De Maaltuin.",
+    "Bekijk producties van Jager Producties, waaronder patiëntenfilms voor Stichting Duos, de sportieve clubvideo voor FC De Bilt en de horecavideo voor De Maaltuin.",
 };
 
-const CASES = [
+type CaseItem = {
+  tc: string;
+  client: string;
+  title: string;
+  img?: string;
+  alt?: string;
+  /** Embed-URL — vervangt de foto door een videospeler in het frame. */
+  video?: string;
+  meta: string;
+  body: string;
+  link?: { href: string; label: string };
+  facts: string[];
+};
+
+const CASES: CaseItem[] = [
   {
     tc: "SELECT 01",
+    client: "Stichting Duos",
+    title: "Patiëntenfilm, arts Erasmus MC",
+    video: "https://www.youtube-nocookie.com/embed/X5uMEyhSCbg?start=3&rel=0",
+    meta: "ZORG · PATIËNTENFILM",
+    body: "Langdurig contract met Stichting Duos voor het maken van patiëntenfilms. Bekijk de YouTube-pagina van Stichting Duos voor de gemaakte video's.",
+    link: {
+      href: "https://www.youtube.com/@StichtingduosNl2011",
+      label: "Naar de YouTube-pagina van Stichting Duos",
+    },
+    facts: [
+      "Opdrachtgever: Stichting Duos",
+      "Genre: patiëntenfilm / zorg",
+      "Rol: concept, camera, montage",
+    ],
+  },
+  {
+    tc: "SELECT 02",
     client: "FC De Bilt",
     title: "Sportieve clubvideo",
     img: MEDIA.floodlitPitch,
@@ -21,7 +52,7 @@ const CASES = [
     facts: ["Opdrachtgever: FC De Bilt", "Genre: clubvideo / sport", "Rol: concept, camera, montage"],
   },
   {
-    tc: "SELECT 02",
+    tc: "SELECT 03",
     client: "De Maaltuin",
     title: "Horecavideo",
     img: MEDIA.openKitchen,
@@ -46,7 +77,24 @@ export default function WerkPage() {
           {CASES.map((c) => (
             <Reveal key={c.client}>
               <article>
-                <Frame src={c.img} alt={c.alt} caption={`${c.client} — ${c.title}`} meta={c.meta} />
+                <Frame
+                  src={c.img}
+                  alt={c.alt}
+                  caption={`${c.client} — ${c.title}`}
+                  meta={c.meta}
+                  ratio={c.video ? "aspect-video" : undefined}
+                >
+                  {c.video ? (
+                    <iframe
+                      src={c.video}
+                      title={`${c.client} — ${c.title}`}
+                      loading="lazy"
+                      allow="autoplay; fullscreen; picture-in-picture"
+                      allowFullScreen
+                      className="absolute inset-0 h-full w-full"
+                    />
+                  ) : undefined}
+                </Frame>
                 <div className="mt-8 grid gap-8 md:grid-cols-[1fr_280px]">
                   <div>
                     <p className="font-mono text-sm text-amber">{c.tc}</p>
@@ -56,6 +104,24 @@ export default function WerkPage() {
                     <p className="mt-4 max-w-2xl text-[16px] leading-relaxed text-dim">
                       {c.body}
                     </p>
+                    {c.link && (
+                      <a
+                        href={c.link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group mt-5 inline-flex items-center gap-2 font-mono text-[13px] uppercase tracking-[0.18em] text-amber"
+                      >
+                        <span
+                          aria-hidden
+                          className="transition-transform duration-300 group-hover:translate-x-1"
+                        >
+                          ▶
+                        </span>
+                        <span className="underline decoration-amber/40 underline-offset-4 group-hover:decoration-amber">
+                          {c.link.label}
+                        </span>
+                      </a>
+                    )}
                   </div>
                   <ul className="h-fit space-y-2 border-l-2 border-amber/60 pl-5 md:mt-10">
                     {c.facts.map((f) => (
@@ -76,7 +142,7 @@ export default function WerkPage() {
           <Reveal>
             <div className="border border-dashed border-line px-6 py-12 text-center md:px-12 md:py-16">
               <p className="font-mono text-[12px] uppercase tracking-[0.22em] text-amber">
-                Select 03 — nog leeg
+                Select 04 — nog leeg
               </p>
               <h2 className="mx-auto mt-4 max-w-2xl font-display text-3xl uppercase leading-tight tracking-wide sm:text-4xl">
                 Deze plek is gereserveerd voor jouw productie
