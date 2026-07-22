@@ -64,6 +64,23 @@ export default function BedrijvenPage() {
                 </Frame>
               </div>
             </Reveal>
+
+            <Reveal>
+              <Frame
+                caption="De Borrelplank van — podcastserie over theater"
+                meta="PODCAST · 16:9"
+                ratio="aspect-video"
+              >
+                <iframe
+                  src="https://player.vimeo.com/video/1020932745?title=0&byline=0&portrait=0&dnt=1"
+                  title="De Borrelplank van — podcastserie over theater"
+                  loading="lazy"
+                  allow="autoplay; fullscreen; picture-in-picture"
+                  allowFullScreen
+                  className="absolute inset-0 h-full w-full"
+                />
+              </Frame>
+            </Reveal>
           </div>
         </div>
       </section>
