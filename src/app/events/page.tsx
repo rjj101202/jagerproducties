@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import HeroVideo from "@/components/HeroVideo";
 import Reveal from "@/components/Reveal";
 import { ArrowLink, CtaBand, Frame, NumberRow, PageHeader, Slate } from "@/components/ui";
 import { MEDIA } from "@/lib/site";
@@ -59,13 +58,38 @@ export default function EventsPage() {
       />
 
       <section className="px-5 py-16 md:px-8 md:py-24">
-        <div className="mx-auto max-w-6xl">
+        <div className="mx-auto max-w-6xl space-y-16">
           <Reveal>
             <Frame
-              caption="Sfeerbeeld: publiek bij avond"
-              meta="STOCK · TER ILLUSTRATIE"
+              caption="De Maaltuin"
+              meta="HORECA · 16:9"
+              ratio="aspect-video"
             >
-              <HeroVideo src={MEDIA.eventsVideo} poster={MEDIA.arenaLights} />
+              <iframe
+                src="https://player.vimeo.com/video/1014752844?title=0&byline=0&portrait=0&dnt=1"
+                title="De Maaltuin"
+                loading="lazy"
+                allow="autoplay; fullscreen; picture-in-picture"
+                allowFullScreen
+                className="absolute inset-0 h-full w-full"
+              />
+            </Frame>
+          </Reveal>
+
+          <Reveal>
+            <Frame
+              caption="Winkelcentrum Bisonspoor"
+              meta="EVENT · 16:9"
+              ratio="aspect-video"
+            >
+              <iframe
+                src="https://player.vimeo.com/video/996175955?title=0&byline=0&portrait=0&dnt=1"
+                title="Winkelcentrum Bisonspoor"
+                loading="lazy"
+                allow="autoplay; fullscreen; picture-in-picture"
+                allowFullScreen
+                className="absolute inset-0 h-full w-full"
+              />
             </Frame>
           </Reveal>
         </div>
