@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Reveal from "@/components/Reveal";
-import { CtaBand, Frame, PageHeader } from "@/components/ui";
+import { CtaBand, Frame } from "@/components/ui";
 import { EMAIL, MEDIA, TEL } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -12,13 +12,7 @@ export const metadata: Metadata = {
 export default function OverPage() {
   return (
     <>
-      <PageHeader
-        kicker="Over de maker"
-        title="Eén paar ogen, van script tot master"
-        intro="Jager Producties is bewust klein: videograaf Remy Jager doet concept, camera én montage zelf. Wat je bespreekt aan de koffietafel, is precies wat je terugziet op de tijdlijn."
-      />
-
-      <section className="px-5 py-16 md:px-8 md:py-24">
+      <section className="px-5 pb-16 pt-32 md:px-8 md:pb-24 md:pt-40">
         <div className="mx-auto grid max-w-6xl items-start gap-12 lg:grid-cols-[380px_1fr]">
           <Reveal>
             <Frame
@@ -34,9 +28,9 @@ export default function OverPage() {
               <p className="font-mono text-[12px] uppercase tracking-[0.22em] text-amber">
                 Remy Jager — videograaf
               </p>
-              <h2 className="mt-4 font-display text-4xl uppercase leading-[1.05] tracking-wide sm:text-5xl">
+              <h1 className="mt-4 font-display text-4xl uppercase leading-[1.05] tracking-wide sm:text-5xl">
                 Even voorstellen
-              </h2>
+              </h1>
               <div className="mt-6 max-w-2xl space-y-5 text-[16.5px] leading-relaxed text-dim">
                 <p>
                   Mijn naam is Remy Jager, 26 jaar en masterstudent aan de
