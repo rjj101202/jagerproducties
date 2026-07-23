@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Reveal from "@/components/Reveal";
-import { ArrowLink, CtaBand, Frame, NumberRow, PageHeader } from "@/components/ui";
+import { CtaBand, Frame, PageHeader } from "@/components/ui";
 import { EMAIL, MEDIA, TEL } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -79,50 +79,6 @@ export default function OverPage() {
                 </p>
               </div>
             </div>
-          </Reveal>
-        </div>
-      </section>
-
-      <section className="border-t border-line bg-panel/40 px-5 py-16 md:px-8 md:py-24">
-        <div className="mx-auto max-w-6xl">
-          <Reveal>
-            <p className="font-mono text-[12px] uppercase tracking-[0.22em] text-amber">
-              Regieaanwijzingen
-            </p>
-            <h2 className="mt-4 font-display text-4xl uppercase leading-[1.05] tracking-wide sm:text-5xl">
-              Waar ik in geloof
-            </h2>
-          </Reveal>
-          <div className="mt-10 border-b border-line">
-            <Reveal>
-              <NumberRow index="REGEL 01" title="Echt boven perfect">
-                <p>
-                  De beste shots zijn zelden de meest geregisseerde. Ik bouw
-                  ruimte in voor het onverwachte moment — daar zit het verhaal.
-                </p>
-              </NumberRow>
-            </Reveal>
-            <Reveal>
-              <NumberRow index="REGEL 02" title="Eerlijk over wat er is">
-                <p>
-                  Geen geleende showreels of gekochte logo&apos;s. Wat op deze
-                  site staat, heb ik zelf gemaakt. Klein portfolio, echte
-                  producties.
-                </p>
-              </NumberRow>
-            </Reveal>
-            <Reveal>
-              <NumberRow index="REGEL 03" title="Beeld moet werken">
-                <p>
-                  Een mooie film die niets doet, is decor. Elke productie begint
-                  daarom bij de vraag: wat moet deze video opleveren — leden,
-                  klanten, kandidaten, kaartverkoop?
-                </p>
-              </NumberRow>
-            </Reveal>
-          </div>
-          <Reveal className="mt-10">
-            <ArrowLink href="/werk">Bekijk het werk</ArrowLink>
           </Reveal>
         </div>
       </section>
