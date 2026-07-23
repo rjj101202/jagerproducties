@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Reveal from "@/components/Reveal";
 import { ArrowLink, CtaBand, Frame, NumberRow, PageHeader } from "@/components/ui";
-import { MEDIA } from "@/lib/site";
+import { EMAIL, MEDIA, TEL } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Over — videograaf Remy Jager",
@@ -22,10 +22,10 @@ export default function OverPage() {
         <div className="mx-auto grid max-w-6xl items-start gap-12 lg:grid-cols-[380px_1fr]">
           <Reveal>
             <Frame
-              src={MEDIA.redCamera}
-              alt="Camera-operator achter een cinemacamera op de set"
-              caption="Op de set"
-              meta="BTS"
+              src={MEDIA.remyPortrait}
+              alt="Portret van Remy Jager"
+              caption="Remy Jager"
+              meta="DE MAKER"
               ratio="aspect-[3/4]"
             />
           </Reveal>
@@ -35,33 +35,47 @@ export default function OverPage() {
                 Remy Jager — videograaf
               </p>
               <h2 className="mt-4 font-display text-4xl uppercase leading-[1.05] tracking-wide sm:text-5xl">
-                Waarom klein werkt
+                Even voorstellen
               </h2>
               <div className="mt-6 max-w-2xl space-y-5 text-[16.5px] leading-relaxed text-dim">
                 <p>
-                  Grote producties hebben grote crews nodig. Maar de meeste
-                  bedrijven en events zijn niet geholpen met een productiehuis
-                  vol schakels — die zijn geholpen met iemand die komt kijken,
-                  goed luistert en dan precies het juiste beeld maakt.
+                  Mijn naam is Remy Jager, 26 jaar en masterstudent aan de
+                  Universiteit Utrecht, én woonachtig in Utrecht. Ik ben naast
+                  mijn studie ook met veel plezier videograaf. Ik geniet van alle
+                  verschillende plekken waar ik hierdoor terecht kom: de ene keer
+                  bij een winkelcentrum, dan weer bij een voetbalclub, een
+                  restaurant of een theater. Je spreekt zo veel leuke en
+                  interessante mensen, en ziet veel van het land.
                 </p>
                 <p>
-                  Daarom werkt Jager Producties met één maker. Ik sta zelf
-                  achter de camera en zit zelf achter de montage. Voor FC De
-                  Bilt betekende dat een clubvideo die voelt als de club zelf;
-                  voor De Maaltuin een horecavideo waar je honger van krijgt.
+                  Ook heb ik, al zeg ik het zelf ;), een goed oog voor beelden van
+                  mensen. Ik kan mensen vastleggen zonder dat ze het doorhebben, en
+                  daardoor leg ik echt de emotie van een evenement of een bedrijf
+                  goed vast. Naast events en bedrijven heb ik ook ervaring met
+                  bruiloften, en doe ik dit ook nog af en toe.
                 </p>
                 <p>
-                  Naast Jager Producties run ik{" "}
+                  Ik film met een Sony A7III, voorzien van een goede lens, en een
+                  DJI Gimbal om stabiel te kunnen filmen. Ook heb ik een drone en
+                  beschik ik over goede audio-opnameapparatuur. Ik kan zowel
+                  verticaal (voor op de socials) als horizontaal stabiel filmen.
+                </p>
+                <p>
+                  Bel me op{" "}
                   <a
-                    href="https://novaemedia.nl"
+                    href={`tel:${TEL.replace(/\s/g, "")}`}
                     className="text-ink underline decoration-amber/50 underline-offset-4 hover:decoration-amber"
                   >
-                    Novae Media
+                    {TEL}
                   </a>
-                  , waarmee ik websites bouw voor ondernemers. Die combinatie is
-                  geen toeval: ik weet niet alleen hoe je goed beeld maakt, maar
-                  ook waar het online moet renderen — op je site, in je campagne,
-                  op je socials.
+                  , of mail op{" "}
+                  <a
+                    href={`mailto:${EMAIL}`}
+                    className="text-ink underline decoration-amber/50 underline-offset-4 hover:decoration-amber"
+                  >
+                    {EMAIL}
+                  </a>{" "}
+                  voor contact.
                 </p>
               </div>
             </div>

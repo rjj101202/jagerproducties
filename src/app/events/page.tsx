@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Reveal from "@/components/Reveal";
-import { ArrowLink, CtaBand, Frame, NumberRow, PageHeader, Slate } from "@/components/ui";
+import { CtaBand, Frame, PageHeader, Slate } from "@/components/ui";
 import { MEDIA } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -129,51 +129,6 @@ export default function EventsPage() {
               </Reveal>
             ))}
           </div>
-        </div>
-      </section>
-
-      <section className="border-t border-line bg-panel/40 px-5 py-16 md:px-8 md:py-24">
-        <div className="mx-auto max-w-6xl">
-          <Reveal>
-            <Slate
-              scene="02"
-              tc="00:04:20:08"
-              title="Zo verloopt een eventproductie"
-              intro="Events kennen geen tweede take. Daarom zit de voorbereiding aan de voorkant:"
-            />
-          </Reveal>
-          <div className="mt-10 border-b border-line">
-            <Reveal>
-              <NumberRow index="VOORAF" title="Draaiboek & shotlist">
-                <p>
-                  We lopen het programma samen door: de momenten die er
-                  écht in moeten, de plekken waar ik mag staan en de mensen die
-                  in beeld komen. Zo mis ik niets — ook niet wat niet gepland was.
-                </p>
-              </NumberRow>
-            </Reveal>
-            <Reveal>
-              <NumberRow index="DE DAG" title="Onzichtbaar aanwezig">
-                <p>
-                  Compacte set-up, geen lampenpark of camera in iemands gezicht.
-                  Ik beweeg mee met het event en vang het moment zonder het te
-                  verstoren.
-                </p>
-              </NumberRow>
-            </Reveal>
-            <Reveal>
-              <NumberRow index="ERNA" title="Snel online">
-                <p>
-                  De buzz is het grootst vlak na afloop. In overleg plannen we de
-                  oplevering daarop: eerst een korte teaser voor social, daarna de
-                  volledige aftermovie.
-                </p>
-              </NumberRow>
-            </Reveal>
-          </div>
-          <Reveal className="mt-10">
-            <ArrowLink href="/werk">Lees meer over de FC De Bilt-productie</ArrowLink>
-          </Reveal>
         </div>
       </section>
 
