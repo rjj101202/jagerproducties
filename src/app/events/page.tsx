@@ -54,7 +54,7 @@ export default function EventsPage() {
       <PageHeader
         kicker="Voor events"
         title="Films die het weer laten gebeuren"
-        intro="Een event duurt één avond; de video ervan gaat jaren mee. Ik film tussen het publiek, niet erboven — zodat je de energie terugvoelt bij elke seconde."
+        intro="Ik film tussen het publiek, en zorg dat ik de emotie van de gasten vastleg. Zodat de sfeer van het evenement goed terug is te zien. De mensen maken je feest, en ik leg die mensen vast. Kijk hieronder hoe ik te werk ga!"
       />
 
       <section className="px-5 py-16 md:px-8 md:py-24">
