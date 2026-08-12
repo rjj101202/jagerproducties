@@ -42,11 +42,8 @@ export default function OverPage() {
                   interessante mensen, en ziet veel van het land.
                 </p>
                 <p>
-                  Ook heb ik, al zeg ik het zelf ;), een goed oog voor beelden van
-                  mensen. Ik kan mensen vastleggen zonder dat ze het doorhebben, en
-                  daardoor leg ik echt de emotie van een evenement of een bedrijf
-                  goed vast. Naast events en bedrijven heb ik ook ervaring met
-                  bruiloften, en doe ik dit ook nog af en toe.
+                  Naast events en bedrijfsvideo&apos;s heb ik ook ervaring met
+                  bruiloften.
                 </p>
                 <p>
                   Ik film met een Sony A7III, voorzien van een goede lens, en een

@@ -24,7 +24,7 @@ export default function BedrijvenPage() {
               scene="01"
               tc="00:00:08:00"
               title="Werk voor bedrijven"
-              intro="Een greep uit recent werk: een brand video en een reel, gemaakt voor MPower."
+              intro="Een greep uit recent werk: een brand video en een reel voor MPower, een patiëntenfilm voor Stichting Duos en een podcastserie over theater."
             />
           </Reveal>
 
@@ -63,6 +63,23 @@ export default function BedrijvenPage() {
                   />
                 </Frame>
               </div>
+            </Reveal>
+
+            <Reveal>
+              <Frame
+                caption="Stichting Duos — patiëntenfilm"
+                meta="ZORG · 16:9"
+                ratio="aspect-video"
+              >
+                <iframe
+                  src="https://www.youtube-nocookie.com/embed/X5uMEyhSCbg?start=3&rel=0"
+                  title="Stichting Duos — patiëntenfilm"
+                  loading="lazy"
+                  allow="autoplay; fullscreen; picture-in-picture"
+                  allowFullScreen
+                  className="absolute inset-0 h-full w-full"
+                />
+              </Frame>
             </Reveal>
 
             <Reveal>

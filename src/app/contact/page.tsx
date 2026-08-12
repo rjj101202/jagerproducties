@@ -15,7 +15,7 @@ export default function ContactPage() {
       <PageHeader
         kicker="Contact"
         title="En… actie"
-        intro="Geen formulieren, geen wachtrij. Mail me rechtstreeks en vertel in drie zinnen wat je wilt maken — dan hoor je snel van me."
+        intro="Geen formulier of wachtrij, stuur me een mailtje of bel me en kunnen we samen wat moois gaan maken!"
       />
 
       {/* Grote directe contactkaart */}

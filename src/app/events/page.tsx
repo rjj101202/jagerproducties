@@ -78,6 +78,23 @@ export default function EventsPage() {
 
           <Reveal>
             <Frame
+              caption="Swim to Fight Cancer"
+              meta="AFTERMOVIE · 16:9"
+              ratio="aspect-video"
+            >
+              <iframe
+                src="https://player.vimeo.com/video/1014734945?title=0&byline=0&portrait=0&dnt=1"
+                title="Swim to Fight Cancer"
+                loading="lazy"
+                allow="autoplay; fullscreen; picture-in-picture"
+                allowFullScreen
+                className="absolute inset-0 h-full w-full"
+              />
+            </Frame>
+          </Reveal>
+
+          <Reveal>
+            <Frame
               caption="Winkelcentrum Bisonspoor"
               meta="EVENT · 16:9"
               ratio="aspect-video"
