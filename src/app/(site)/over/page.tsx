@@ -52,6 +52,11 @@ export default function OverPage() {
                   verticaal (voor op de socials) als horizontaal stabiel filmen.
                 </p>
                 <p>
+                  Verder werk ik samen met een team van vaste videografen en
+                  editors. Hierdoor pakken we ook grotere projecten op, die voor
+                  mij alleen te groot zijn!
+                </p>
+                <p>
                   Bel me op{" "}
                   <a
                     href={`tel:${TEL.replace(/\s/g, "")}`}

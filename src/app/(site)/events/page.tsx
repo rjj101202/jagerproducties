@@ -26,7 +26,7 @@ const TYPES = [
     alt: "Verlicht voetbalveld in de avond",
     caption: "Van warming-up tot laatste fluitsignaal",
     meta: "WEDSTRIJD · TOERNOOI",
-    body: "Toernooien, wedstrijden, clubdagen. Ik ken het ritme van sport — anticiperen op het moment in plaats van erachteraan filmen. Voor FC De Bilt maakte ik een sportieve clubvideo die club én leden liet zien waar ze bij horen.",
+    body: "Toernooien, wedstrijden, clubdagen. Ik ken het ritme van sport: ik anticipeer op het moment in plaats van erachteraan te filmen. Voor FC De Bilt maakte ik een sportieve clubvideo die club én leden liet zien waar ze bij horen.",
   },
   {
     nr: "03",
@@ -35,7 +35,7 @@ const TYPES = [
     alt: "Podium met lichtshow en publiek in een volle zaal",
     caption: "Licht, geluid en publiek in één frame",
     meta: "LIVE",
-    body: "Draaien in het donker, tussen lichtshow en publiek — dat is een vak apart. Ik film onopvallend, zonder de beleving te storen, en lever beeld waarin je de bas bijna voelt.",
+    body: "Draaien in het donker, tussen lichtshow en publiek, is een vak apart. Ik film onopvallend, zonder de beleving te storen, en lever beeld waarin je de bas bijna voelt.",
   },
   {
     nr: "04",
@@ -149,7 +149,7 @@ export default function EventsPage() {
         </div>
       </section>
 
-      <CtaBand title="Vertel me wanneer je event is — dan hou ik de datum vrij." />
+      <CtaBand title="Vertel me wanneer je event is, dan hou ik de datum vrij." />
     </>
   );
 }

@@ -116,7 +116,7 @@ export default function BedrijvenPage() {
             {[
               {
                 t: "Eén aanspreekpunt",
-                b: "Je schakelt rechtstreeks met de maker — geen accountmanager ertussen.",
+                b: "Je schakelt rechtstreeks met de maker, zonder accountmanager ertussen.",
               },
               {
                 t: "Vaste prijs vooraf",
@@ -124,7 +124,7 @@ export default function BedrijvenPage() {
               },
               {
                 t: "Alle formats",
-                b: "16:9, 9:16 en 1:1 — je video werkt op je site, in presentaties én op social.",
+                b: "16:9, 9:16 en 1:1: je video werkt op je site, in presentaties én op social.",
               },
             ].map((c) => (
               <div key={c.t} className="bg-coal p-7">
