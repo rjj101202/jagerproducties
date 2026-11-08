@@ -51,16 +51,6 @@ export default function Footer() {
           <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-dim">
             KVK {KVK}
           </p>
-          <p className="font-mono text-[11px] tracking-[0.06em] text-dim/80">
-            Ook een website nodig?{" "}
-            <a
-              href="https://novaemedia.nl"
-              className="text-dim underline decoration-line underline-offset-4 hover:text-ink"
-            >
-              Novae Media
-            </a>{" "}
-            — websites op abonnement, van dezelfde maker.
-          </p>
         </div>
       </div>
     </footer>
