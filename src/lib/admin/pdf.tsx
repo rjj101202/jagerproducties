@@ -1,5 +1,6 @@
 import {
   Document,
+  Font,
   Image,
   Page,
   StyleSheet,
@@ -17,6 +18,9 @@ import {
   Instellingen,
   Klant,
 } from "./types";
+
+// Geen woordafbreking ("ver-melding"); hele woorden naar de volgende regel
+Font.registerHyphenationCallback((woord) => [woord]);
 
 const s = StyleSheet.create({
   page: {
@@ -75,7 +79,7 @@ const s = StyleSheet.create({
   },
   qr: { width: 92, height: 92, marginRight: 16 },
   betaalKop: { fontFamily: "Helvetica-Bold", fontSize: 10.5, marginBottom: 5 },
-  betaalRegel: { marginBottom: 2, lineHeight: 1.4 },
+  betaalRegel: { marginBottom: 2 },
   voet: {
     position: "absolute",
     left: 48,
@@ -114,7 +118,7 @@ function FactuurDocument({
           <View>
             <Text style={s.merk}>{i.bedrijfsnaam.toUpperCase()}</Text>
             <Text style={{ color: "#777777", marginTop: 3 }}>
-              Videoproductie — {i.plaats || "Nederland"}
+              Videoproductie in Utrecht
             </Text>
           </View>
           <Text style={s.titel}>FACTUUR</Text>
@@ -131,6 +135,7 @@ function FactuurDocument({
                 {[klant.postcode, klant.plaats].filter(Boolean).join("  ")}
               </Text>
             ) : null}
+            {klant.kvk_nummer ? <Text>KvK: {klant.kvk_nummer}</Text> : null}
             {klant.btw_nummer ? <Text>Btw-nr: {klant.btw_nummer}</Text> : null}
           </View>
           <View style={s.meta}>

@@ -23,9 +23,9 @@ export default async function FactuurDetail({
   searchParams,
 }: {
   params: Promise<{ id: string }>;
-  searchParams: Promise<{ fout?: string; verzonden?: string }>;
+  searchParams: Promise<{ fout?: string; verzonden?: string; bedankt?: string }>;
 }) {
-  const [{ id }, { fout, verzonden }] = await Promise.all([params, searchParams]);
+  const [{ id }, { fout, verzonden, bedankt }] = await Promise.all([params, searchParams]);
   const factuur = await getFactuur(Number(id));
   if (!factuur) notFound();
   const [klant, instellingen] = await Promise.all([
@@ -52,6 +52,11 @@ export default async function FactuurDetail({
         <p className={succesmelding}>
           Factuur verstuurd naar {klant.email}. Je krijgt zelf geen kopie; onder
           “Verzonden op” zie je de verzenddatum.
+        </p>
+      ) : null}
+      {bedankt ? (
+        <p className={succesmelding}>
+          Factuur staat op betaald en de bedankmail is verstuurd naar {klant.email}.
         </p>
       ) : null}
 
@@ -157,6 +162,14 @@ export default async function FactuurDetail({
           Bekijk PDF
         </a>
 
+        <a
+          href={`/api/admin/facturen/${factuur.id}/mail`}
+          className={knopStil}
+          target="_blank"
+        >
+          Bekijk mail
+        </a>
+
         {factuur.status === "concept" ? (
           <>
             <Link href={`/admin/facturen/${factuur.id}/bewerken`} className={knopStil}>
@@ -178,6 +191,17 @@ export default async function FactuurDetail({
             <button type="submit" className={knopStil}>
               Markeer als betaald
             </button>
+            <label className="ml-3 inline-flex items-center gap-2 text-sm text-dim">
+              <input type="checkbox" name="bedankmail" defaultChecked />
+              met bedankmail
+            </label>
+            <a
+              href={`/api/admin/facturen/${factuur.id}/mail?soort=bedank`}
+              className="ml-2 text-sm text-dim underline"
+              target="_blank"
+            >
+              voorbeeld
+            </a>
           </form>
         ) : null}
 

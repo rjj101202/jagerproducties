@@ -58,9 +58,21 @@ export default function KlantVelden({ klant }: { klant?: Klant }) {
         </label>
         <input id="plaats" name="plaats" defaultValue={klant?.plaats ?? ""} className={invoer} />
       </div>
-      <div className="sm:col-span-2">
+      <div>
+        <label className={label} htmlFor="kvk_nummer">
+          KvK-nummer klant (optioneel)
+        </label>
+        <input
+          id="kvk_nummer"
+          name="kvk_nummer"
+          inputMode="numeric"
+          defaultValue={klant?.kvk_nummer ?? ""}
+          className={invoer}
+        />
+      </div>
+      <div>
         <label className={label} htmlFor="btw_nummer">
-          Btw-nummer klant (optioneel, komt op de factuur)
+          Btw-nummer klant (optioneel)
         </label>
         <input
           id="btw_nummer"

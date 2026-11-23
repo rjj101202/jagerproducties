@@ -9,6 +9,7 @@ export type Klant = {
   postcode: string | null;
   plaats: string | null;
   btw_nummer: string | null;
+  kvk_nummer: string | null;
   created_at: string;
 };
 

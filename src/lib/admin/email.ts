@@ -19,7 +19,7 @@ function ontsmet(s: string): string {
     .replaceAll('"', "&quot;");
 }
 
-function factuurHtml(factuur: Factuur, klant: Klant, i: Instellingen): string {
+export function factuurHtml(factuur: Factuur, klant: Klant, i: Instellingen): string {
   const t = berekenTotalen(factuur.regels);
   const qrUrl = `${SITE_URL}/api/qr/${factuur.qr_token}`;
   const aanhef = klant.contactpersoon
@@ -148,5 +148,69 @@ export async function verstuurFactuurMail(
 
   if (error) {
     throw new Error(`Versturen mislukt: ${error.message}`);
+  }
+}
+
+export function bedankHtml(factuur: Factuur, klant: Klant, i: Instellingen): string {
+  const t = berekenTotalen(factuur.regels);
+  const aanhef = klant.contactpersoon
+    ? `Beste ${ontsmet(klant.contactpersoon)}`
+    : `Beste ${ontsmet(klant.naam)}`;
+
+  return `<!doctype html>
+<html lang="nl">
+<body style="margin:0;padding:0;background:#f4f4f2;font-family:Arial,Helvetica,sans-serif;color:#1a1a1a;">
+  <div style="max-width:560px;margin:0 auto;padding:24px 16px;">
+    <div style="background:#ffffff;border-radius:10px;padding:32px;">
+      <div style="font-size:18px;font-weight:bold;letter-spacing:1px;margin-bottom:24px;">${ontsmet(i.bedrijfsnaam).toUpperCase()}</div>
+
+      <p style="margin:0 0 16px;">${aanhef},</p>
+      <p style="margin:0 0 16px;line-height:1.5;">
+        Bedankt voor je betaling! Het bedrag van <strong>${euro(t.totaal_cent)}</strong>
+        voor factuur <strong>${ontsmet(factuur.nummer)}</strong> is in goede orde ontvangen.
+      </p>
+      <p style="margin:0 0 16px;line-height:1.5;">
+        Fijn dat we samen hebben gewerkt. Heb je in de toekomst weer een videoproject,
+        dan hoor ik het graag.
+      </p>
+
+      <p style="margin:24px 0 0;line-height:1.5;">
+        Met vriendelijke groet,<br/>
+        <strong>Remy Jager</strong><br/>
+        ${ontsmet(i.bedrijfsnaam)}
+      </p>
+    </div>
+
+    <div style="text-align:center;color:#999;font-size:11px;padding:16px 8px;line-height:1.6;">
+      ${[ontsmet(i.bedrijfsnaam), ontsmet(i.email), ontsmet(i.telefoon)]
+        .filter(Boolean)
+        .join(" · ")}
+    </div>
+  </div>
+</body>
+</html>`;
+}
+
+export async function verstuurBedankMail(
+  factuur: Factuur,
+  klant: Klant,
+  instellingen: Instellingen
+): Promise<void> {
+  const key = process.env.RESEND_API_KEY;
+  if (!key) {
+    throw new Error("RESEND_API_KEY ontbreekt — zie README-ADMIN.md voor de setup.");
+  }
+
+  const resend = new Resend(key);
+  const { error } = await resend.emails.send({
+    from: `${instellingen.bedrijfsnaam} <${instellingen.email}>`,
+    to: [klant.email],
+    replyTo: instellingen.email,
+    subject: `Bedankt voor je betaling — factuur ${factuur.nummer}`,
+    html: bedankHtml(factuur, klant, instellingen),
+  });
+
+  if (error) {
+    throw new Error(`Bedankmail versturen mislukt: ${error.message}`);
   }
 }

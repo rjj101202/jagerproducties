@@ -41,6 +41,8 @@ async function maakSchema(sql: ReturnType<typeof postgres>) {
       btw_nummer TEXT,
       created_at TIMESTAMPTZ NOT NULL DEFAULT now()
     )`;
+  // later toegevoegd; bestaande databases krijgen de kolom er zo bij
+  await sql`ALTER TABLE klanten ADD COLUMN IF NOT EXISTS kvk_nummer TEXT`;
   await sql`
     CREATE TABLE IF NOT EXISTS facturen (
       id SERIAL PRIMARY KEY,
@@ -99,6 +101,7 @@ function alsKlant(r: postgres.Row): Klant {
     postcode: r.postcode,
     plaats: r.plaats,
     btw_nummer: r.btw_nummer,
+    kvk_nummer: r.kvk_nummer,
     created_at: String(r.created_at),
   };
 }
@@ -118,8 +121,8 @@ export async function getKlant(id: number): Promise<Klant | null> {
 export async function maakKlant(k: Omit<Klant, "id" | "created_at">): Promise<number> {
   const sql = await db();
   const rijen = await sql`
-    INSERT INTO klanten (naam, contactpersoon, email, adres, postcode, plaats, btw_nummer)
-    VALUES (${k.naam}, ${k.contactpersoon}, ${k.email}, ${k.adres}, ${k.postcode}, ${k.plaats}, ${k.btw_nummer})
+    INSERT INTO klanten (naam, contactpersoon, email, adres, postcode, plaats, btw_nummer, kvk_nummer)
+    VALUES (${k.naam}, ${k.contactpersoon}, ${k.email}, ${k.adres}, ${k.postcode}, ${k.plaats}, ${k.btw_nummer}, ${k.kvk_nummer})
     RETURNING id`;
   return rijen[0].id;
 }
@@ -129,7 +132,8 @@ export async function updateKlant(id: number, k: Omit<Klant, "id" | "created_at"
   await sql`
     UPDATE klanten SET
       naam = ${k.naam}, contactpersoon = ${k.contactpersoon}, email = ${k.email},
-      adres = ${k.adres}, postcode = ${k.postcode}, plaats = ${k.plaats}, btw_nummer = ${k.btw_nummer}
+      adres = ${k.adres}, postcode = ${k.postcode}, plaats = ${k.plaats}, btw_nummer = ${k.btw_nummer},
+      kvk_nummer = ${k.kvk_nummer}
     WHERE id = ${id}`;
 }
 

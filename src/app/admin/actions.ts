@@ -23,7 +23,7 @@ import {
   zetFactuurStatus,
   zetInstellingen,
 } from "@/lib/admin/db";
-import { verstuurFactuurMail } from "@/lib/admin/email";
+import { verstuurBedankMail, verstuurFactuurMail } from "@/lib/admin/email";
 import { FactuurRegel, parseEuro } from "@/lib/admin/types";
 
 function tekst(formData: FormData, naam: string): string {
@@ -68,6 +68,7 @@ function klantUitForm(formData: FormData) {
     postcode: tekstOfNull(formData, "postcode"),
     plaats: tekstOfNull(formData, "plaats"),
     btw_nummer: tekstOfNull(formData, "btw_nummer"),
+    kvk_nummer: tekstOfNull(formData, "kvk_nummer"),
   };
 }
 
@@ -229,6 +230,18 @@ export async function factuurStatusActie(formData: FormData): Promise<void> {
   }
   await zetFactuurStatus(id, status);
   revalidatePath(`/admin/facturen/${id}`);
+
+  if (status === "betaald" && formData.get("bedankmail") === "on") {
+    try {
+      const factuur = await getFactuur(id);
+      const klant = factuur ? await getKlant(factuur.klant_id) : null;
+      if (!factuur || !klant) throw new Error("Factuur of klant niet gevonden.");
+      await verstuurBedankMail(factuur, klant, await getInstellingen());
+    } catch (e) {
+      metFout(`/admin/facturen/${id}`, e);
+    }
+    redirect(`/admin/facturen/${id}?bedankt=1`);
+  }
   redirect(`/admin/facturen/${id}`);
 }
 
