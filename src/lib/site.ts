@@ -46,3 +46,25 @@ export const MEDIA = {
   office:
     "https://images.pexels.com/photos/3184357/pexels-photo-3184357.jpeg?auto=compress&cs=tinysrgb&w=1600",
 } as const;
+
+/**
+ * Logo's van opdrachtgevers voor de band onder de hero (public/klanten/).
+ * `displayHeight` is per logo afgesteld zodat brede en vierkante logo's
+ * optisch even zwaar ogen. `badge`: logo met eigen vlak (cirkel/blok), dat
+ * in grijstinten blijft i.p.v. als wit silhouet.
+ */
+export const CLIENT_LOGOS: {
+  name: string;
+  src: string;
+  width: number;
+  height: number;
+  displayHeight: number;
+  badge?: boolean;
+}[] = [
+  { name: "De Maaltuin", src: "/klanten/de-maaltuin.png", width: 428, height: 160, displayHeight: 48 },
+  { name: "Erasmus MC", src: "/klanten/erasmus-mc.svg", width: 254, height: 109, displayHeight: 52 },
+  { name: "Cooper", src: "/klanten/cooper.png", width: 1256, height: 160, displayHeight: 20 },
+  { name: "Winkelcentrum Oostpoort", src: "/klanten/oostpoort.png", width: 773, height: 126, displayHeight: 22 },
+  { name: "Swim to Fight Cancer", src: "/klanten/swim-to-fight-cancer.png", width: 160, height: 160, displayHeight: 54, badge: true },
+  { name: "De Nieuwe Gevers", src: "/klanten/de-nieuwe-gevers.svg", width: 160, height: 200, displayHeight: 58, badge: true },
+];

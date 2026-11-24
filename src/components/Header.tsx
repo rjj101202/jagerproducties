@@ -14,7 +14,20 @@ const NAV = [
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
+
+  // Bovenaan doorzichtig over de hero; zwart zodra je naar beneden scrolt
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    const raf = requestAnimationFrame(onScroll);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, []);
+  const solid = scrolled || open;
 
   // Menu sluiten bij navigatie + scroll-lock als het open staat
   useEffect(() => setOpen(false), [pathname]);
@@ -31,7 +44,13 @@ export default function Header() {
 
   return (
     <>
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-ink/10 bg-coal/80 backdrop-blur-md">
+    <header
+      className={`fixed inset-x-0 top-0 z-50 border-b transition-[background-color,border-color] duration-300 ${
+        solid
+          ? "border-ink/10 bg-coal"
+          : "border-transparent bg-gradient-to-b from-coal/60 to-transparent"
+      }`}
+    >
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 md:px-8">
         <Link
           href="/"
@@ -52,7 +71,11 @@ export default function Header() {
                 key={item.href}
                 href={item.href}
                 className={`group font-mono text-[13px] uppercase tracking-[0.14em] transition-colors ${
-                  active ? "text-amber" : "text-dim hover:text-ink"
+                  active
+                    ? "text-amber"
+                    : solid
+                      ? "text-dim hover:text-ink"
+                      : "text-ink/85 hover:text-ink"
                 }`}
               >
                 <span aria-hidden className="mr-1 text-[10px] text-ink/35">
@@ -85,8 +108,7 @@ export default function Header() {
     </header>
 
       {/* Mobiel overlay-menu: de donkere montagekamer.
-          Buiten de <header>, want backdrop-blur maakt de header een
-          containing block voor fixed-positioned kinderen. */}
+          Buiten de <header>, zodat het menu los van de header positioneert. */}
       {open && (
         <div className="fixed inset-x-0 top-16 bottom-0 z-40 flex flex-col justify-between overflow-y-auto bg-coal md:hidden">
           <nav className="px-5 pt-8" aria-label="Mobiel menu">

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import HeroVideo from "@/components/HeroVideo";
+import LogoBand from "@/components/LogoBand";
 import Reveal from "@/components/Reveal";
 import { ArrowLink, CtaBand, Frame, Slate } from "@/components/ui";
 import { MAILTO, MEDIA } from "@/lib/site";
@@ -45,6 +46,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <LogoBand />
 
       {/* ——— SCENE 01: voor wie — double bill ——— */}
       <section className="px-5 py-20 md:px-8 md:py-28">
