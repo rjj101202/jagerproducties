@@ -1,24 +1,31 @@
 import type { Metadata } from "next";
-import { Archivo, IBM_Plex_Mono, Oswald } from "next/font/google";
+import localFont from "next/font/local";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
 import "./globals.css";
 
-const oswald = Oswald({
+// Fonts staan lokaal in ./fonts (Google Fonts, latin-subset), zodat de
+// build niets van fonts.googleapis.com hoeft op te halen.
+const oswald = localFont({
+  src: "./fonts/oswald.woff2",
   variable: "--font-oswald",
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  weight: "400 600",
+  display: "swap",
 });
 
-const archivo = Archivo({
+const archivo = localFont({
+  src: "./fonts/archivo.woff2",
   variable: "--font-archivo",
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  weight: "400 600",
+  display: "swap",
 });
 
-const plexMono = IBM_Plex_Mono({
+const plexMono = localFont({
+  src: [
+    { path: "./fonts/plex-mono-400.woff2", weight: "400" },
+    { path: "./fonts/plex-mono-500.woff2", weight: "500" },
+  ],
   variable: "--font-plex-mono",
-  subsets: ["latin"],
-  weight: ["400", "500"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
