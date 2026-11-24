@@ -66,8 +66,7 @@ export default function EventsPage() {
               ratio="aspect-video"
             >
               <VideoEmbed
-                src="/videos/stevin-kennisevent.mp4"
-                poster="/videos/stevin-kennisevent.jpg"
+                src="https://player.vimeo.com/video/1249620449?title=0&byline=0&portrait=0&dnt=1"
                 title="Stevin — Kennisevent"
               />
             </Frame>

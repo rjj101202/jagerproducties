@@ -120,32 +120,8 @@ export function Frame({
   );
 }
 
-/**
- * Videospeler binnen een Frame: eigen mp4 (public/videos) als <video>,
- * anders een Vimeo/YouTube-embed.
- */
-export function VideoEmbed({
-  src,
-  title,
-  poster,
-}: {
-  src: string;
-  title: string;
-  poster?: string;
-}) {
-  if (src.endsWith(".mp4")) {
-    return (
-      <video
-        src={src}
-        poster={poster}
-        title={title}
-        controls
-        playsInline
-        preload="none"
-        className="absolute inset-0 h-full w-full bg-black object-contain"
-      />
-    );
-  }
+/** Video-embed (Vimeo/YouTube) die een Frame vult. */
+export function VideoEmbed({ src, title }: { src: string; title: string }) {
   return (
     <iframe
       src={src}

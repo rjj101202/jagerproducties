@@ -6,10 +6,8 @@
 
 export type CaseVideo = {
   title: string;
-  /** Eigen bestand in public/videos (mp4) óf een embed-URL (Vimeo/YouTube). */
+  /** Embed-URL (Vimeo/YouTube). */
   src: string;
-  /** Poster voor eigen video's (public/videos/*.jpg). */
-  poster?: string;
   /** Verticale (9:16) video. */
   portrait?: boolean;
   meta: string;
@@ -42,8 +40,7 @@ export const CASES: Case[] = [
       "Revolt levert elektrische laadpalen in abonnementsvorm: geen grote investering vooraf, maar een vast bedrag per maand voor laadpaal, installatie en beheer. Voor Revolt maakte ik de brand video en een reeks video's die laten zien hoe het werkt.",
     hero: {
       title: "Revolt — brand video",
-      src: "/videos/revolt-brand.mp4",
-      poster: "/videos/revolt-brand.jpg",
+      src: "https://player.vimeo.com/video/1249620492?title=0&byline=0&portrait=0&dnt=1",
       meta: "BRAND · 16:9",
     },
     about: {
@@ -56,7 +53,7 @@ export const CASES: Case[] = [
     role: {
       title: "Wat ik maakte",
       body: [
-        "Eerst de brand video: één film die laat zien waar Revolt voor staat, samen op weg naar zero emissies. Daarna een uitlegvideo over stroomtekort en netcongestie, met een woordvoerder in beeld, en korte how-to video's die gebruikers stap voor stap laten zien hoe ze een laadsessie starten en stoppen.",
+        "Eerst de brand video: één film die laat zien waar Revolt voor staat, samen op weg naar zero emissies. Daarna uitlegvideo's met een woordvoerder in beeld, over stroomtekort en over de keuze tussen een laadpaal kopen of een abonnement. En korte how-to video's die gebruikers stap voor stap laten zien hoe ze een laadsessie starten en stoppen.",
         "Zo heeft Revolt één consistente beeldtaal: van het grote verhaal op de website tot de praktische uitleg bij de laadpaal zelf.",
       ],
     },
@@ -69,22 +66,25 @@ export const CASES: Case[] = [
     more: [
       {
         title: "Stroomtekort",
-        src: "/videos/revolt-stroomtekort.mp4",
-        poster: "/videos/revolt-stroomtekort.jpg",
+        src: "https://player.vimeo.com/video/1249620446?title=0&byline=0&portrait=0&dnt=1",
         meta: "EXPLAINER · 16:9",
         body: "Wat betekent stroomtekort voor jouw bedrijf, en hoe helpt slim laden? Een woordvoerder legt het uit, afgewisseld met beeld van de laadpalen op locatie.",
       },
       {
+        title: "Abonnement of kopen",
+        src: "https://player.vimeo.com/video/1249619549?title=0&byline=0&portrait=0&dnt=1",
+        meta: "EXPLAINER · 16:9",
+        body: "Zelf een laadpaal kopen of er een nemen in abonnementsvorm? Dezelfde woordvoerder zet de verschillen op een rij, zodat bedrijven een goede keuze kunnen maken.",
+      },
+      {
         title: "Laden starten",
-        src: "/videos/revolt-campagne.mp4",
-        poster: "/videos/revolt-campagne.jpg",
+        src: "https://player.vimeo.com/video/1249620447?title=0&byline=0&portrait=0&dnt=1",
         meta: "HOW-TO · 16:9",
         body: "Stap voor stap: kabel erin, pas tegen de lezer, laden maar. Korte instructievideo voor gebruikers van een Revolt-laadpaal.",
       },
       {
         title: "Laden stoppen",
-        src: "/videos/revolt-disconnect.mp4",
-        poster: "/videos/revolt-disconnect.jpg",
+        src: "https://player.vimeo.com/video/1249620445?title=0&byline=0&portrait=0&dnt=1",
         meta: "HOW-TO · 16:9",
         body: "Het vervolg: zo rond je een laadsessie af en koppel je de kabel los. Dezelfde stijl, zodat de serie als één geheel voelt.",
       },
