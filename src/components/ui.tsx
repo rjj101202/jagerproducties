@@ -120,6 +120,44 @@ export function Frame({
   );
 }
 
+/**
+ * Videospeler binnen een Frame: eigen mp4 (public/videos) als <video>,
+ * anders een Vimeo/YouTube-embed.
+ */
+export function VideoEmbed({
+  src,
+  title,
+  poster,
+}: {
+  src: string;
+  title: string;
+  poster?: string;
+}) {
+  if (src.endsWith(".mp4")) {
+    return (
+      <video
+        src={src}
+        poster={poster}
+        title={title}
+        controls
+        playsInline
+        preload="none"
+        className="absolute inset-0 h-full w-full bg-black object-contain"
+      />
+    );
+  }
+  return (
+    <iframe
+      src={src}
+      title={title}
+      loading="lazy"
+      allow="autoplay; fullscreen; picture-in-picture"
+      allowFullScreen
+      className="absolute inset-0 h-full w-full"
+    />
+  );
+}
+
 /** Genummerde rij (dienst / stap): mono-index links, inhoud rechts. */
 export function NumberRow({
   index,
@@ -184,14 +222,18 @@ export function ArrowLink({
   href,
   children,
   className = "",
+  transitionTypes,
 }: {
   href: string;
   children: ReactNode;
   className?: string;
+  /** Richting van de paginaovergang, zie globals.css (nav-forward / nav-back). */
+  transitionTypes?: string[];
 }) {
   return (
     <Link
       href={href}
+      transitionTypes={transitionTypes}
       className={`group inline-flex items-center gap-2 font-mono text-[13px] uppercase tracking-[0.18em] text-amber ${className}`}
     >
       <span

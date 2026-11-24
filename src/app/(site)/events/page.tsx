@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Reveal from "@/components/Reveal";
-import { CtaBand, Frame, PageHeader, Slate } from "@/components/ui";
+import { CtaBand, Frame, PageHeader, Slate, VideoEmbed } from "@/components/ui";
 import { MEDIA } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -59,6 +59,20 @@ export default function EventsPage() {
 
       <section className="px-5 py-16 md:px-8 md:py-24">
         <div className="mx-auto max-w-6xl space-y-16">
+          <Reveal>
+            <Frame
+              caption="Stevin — Kennisevent"
+              meta="KENNISEVENT · 16:9"
+              ratio="aspect-video"
+            >
+              <VideoEmbed
+                src="/videos/stevin-kennisevent.mp4"
+                poster="/videos/stevin-kennisevent.jpg"
+                title="Stevin — Kennisevent"
+              />
+            </Frame>
+          </Reveal>
+
           <Reveal>
             <Frame
               caption="De Maaltuin"
