@@ -28,6 +28,30 @@ type CaseItem = {
 const CASES: CaseItem[] = [
   {
     tc: "SELECT 01",
+    client: "Stevin",
+    title: "Kennisevent",
+    video:
+      "https://player.vimeo.com/video/1249620449?title=0&byline=0&portrait=0&dnt=1",
+    meta: "EVENT · KENNISEVENT",
+    body: "Videoverslag van het kennisevent van Stevin: de sprekers, de gesprekken en de sfeer van de dag, samengebracht in één film.",
+    facts: [
+      "Opdrachtgever: Stevin",
+      "Genre: eventvideo",
+      "Rol: camera, montage",
+    ],
+  },
+  {
+    tc: "SELECT 02",
+    client: "De Maaltuin",
+    title: "Horecavideo",
+    video:
+      "https://player.vimeo.com/video/1014752844?title=0&byline=0&portrait=0&dnt=1",
+    meta: "HORECA · SFEER",
+    body: "Bij horeca draait alles om sfeer, en sfeer moet je kunnen proeven vóór je binnenstapt. Voor De Maaltuin maakte ik een horecavideo waarin de keuken, de borden en de gastvrijheid samen het verhaal vertellen. Beeld dat honger maakt.",
+    facts: ["Opdrachtgever: De Maaltuin", "Genre: horecavideo", "Rol: concept, camera, montage"],
+  },
+  {
+    tc: "SELECT 03",
     client: "Stichting Duos",
     title: "Patiëntenfilm, arts Erasmus MC",
     video: "https://www.youtube-nocookie.com/embed/X5uMEyhSCbg?start=3&rel=0",
@@ -44,7 +68,7 @@ const CASES: CaseItem[] = [
     ],
   },
   {
-    tc: "SELECT 02",
+    tc: "SELECT 04",
     client: "FC De Bilt",
     title: "Insta-video bekerwedstrijd",
     video:
@@ -59,7 +83,7 @@ const CASES: CaseItem[] = [
     ],
   },
   {
-    tc: "SELECT 03",
+    tc: "SELECT 05",
     client: "Swim to Fight Cancer",
     title: "Aftermovie Stichtse Vecht",
     video:
@@ -73,7 +97,7 @@ const CASES: CaseItem[] = [
     ],
   },
   {
-    tc: "SELECT 04",
+    tc: "SELECT 06",
     client: "Kunstmarkt De Bilt",
     title: "Sfeerimpressie",
     video:
@@ -87,7 +111,7 @@ const CASES: CaseItem[] = [
     ],
   },
   {
-    tc: "SELECT 05",
+    tc: "SELECT 07",
     client: "FC De Bilt",
     title: "Sportieve clubvideo",
     img: MEDIA.floodlitPitch,
@@ -95,16 +119,6 @@ const CASES: CaseItem[] = [
     meta: "SPORT · CLUB",
     body: "Een voetbalclub is meer dan negentig minuten op zaterdag. Voor FC De Bilt draaide ik een sportieve clubvideo die dat gevoel vangt: het veld, de leden, de energie langs de lijn. Een film waarmee de club zich laat zien aan nieuwe leden én aan sponsors.",
     facts: ["Opdrachtgever: FC De Bilt", "Genre: clubvideo / sport", "Rol: concept, camera, montage"],
-  },
-  {
-    tc: "SELECT 06",
-    client: "De Maaltuin",
-    title: "Horecavideo",
-    img: MEDIA.openKitchen,
-    alt: "Open restaurantkeuken met grill en koks in warm licht",
-    meta: "HORECA · SFEER",
-    body: "Bij horeca draait alles om sfeer — en sfeer moet je kunnen proeven vóór je binnenstapt. Voor De Maaltuin maakte ik een horecavideo waarin de keuken, de borden en de gastvrijheid samen het verhaal vertellen. Beeld dat honger maakt.",
-    facts: ["Opdrachtgever: De Maaltuin", "Genre: horecavideo", "Rol: concept, camera, montage"],
   },
 ];
 
