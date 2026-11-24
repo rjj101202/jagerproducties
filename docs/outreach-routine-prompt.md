@@ -88,7 +88,7 @@ Gebruik altijd de host https://www.jagerproducties.nl (met www).
    - 422: de melding zegt wat er mis is. Herstel het één keer en post opnieuw; lukt het dan nog niet, sla over.
    - 429: daglimiet bereikt; stop.
 
-6. Doel per run: 8 goede prospects. Kwaliteit gaat altijd voor aantal: 5 sterke mails zijn beter dan 8 matige. Elke mail gaat echt naar een echte organisatie, dus twijfel je over de aanleiding, het adres of de feiten, sla dan over. Stop na deze run.
+6. Doel per run: 8 goede prospects. Houd vol: de meeste kandidaten vallen af (geen mailadres, al video, scan geweigerd), dat is normaal. Geeft een scan een fout of 403, sla die site dan gewoon over. Doe minimaal 6 zoekrondes met steeds andere zoektermen, invalshoeken en regio's, en scan minimaal 25 kandidaten voordat je stopt met minder dan 8. Zoek bij voorkeur direct naar de sites van organisaties zelf (bijvoorbeeld "<plaats> hockeyclub", "<plaats> zomerfestival 2027", "installatiebedrijf <plaats> vacature monteur") in plaats van naar vacaturebanken of nieuwsoverzichten. Kwaliteit gaat altijd voor aantal: 5 sterke mails zijn beter dan 8 matige. Elke mail gaat echt naar een echte organisatie, dus twijfel je over de aanleiding, het adres of de feiten, sla dan over. Stop na deze run.
 
 === AFRONDING ===
 
