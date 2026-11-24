@@ -150,13 +150,13 @@ export default function Home() {
           <div className="mt-12 space-y-14">
             <Reveal>
               <Frame
-                caption="FC De Bilt — sfeerimpressie"
-                meta="SPORT · CLUB"
+                caption="Stevin — kennisevent"
+                meta="EVENT · KENNISEVENT"
                 ratio="aspect-video"
               >
                 <iframe
-                  src="https://player.vimeo.com/video/1014743036?title=0&byline=0&portrait=0&dnt=1#t=8s"
-                  title="FC De Bilt — sfeerimpressie door Jager Producties"
+                  src="https://player.vimeo.com/video/1249620449?title=0&byline=0&portrait=0&dnt=1"
+                  title="Stevin — kennisevent door Jager Producties"
                   loading="lazy"
                   allow="autoplay; fullscreen; picture-in-picture"
                   allowFullScreen
@@ -166,13 +166,13 @@ export default function Home() {
             </Reveal>
             <Reveal>
               <Frame
-                caption="Winkelcentrum Bisonspoor — bedrijfsfilm"
-                meta="BEDRIJF · RETAIL"
+                caption="De Maaltuin — horecavideo"
+                meta="HORECA · SFEER"
                 ratio="aspect-video"
               >
                 <iframe
-                  src="https://player.vimeo.com/video/996175955?title=0&byline=0&portrait=0&dnt=1"
-                  title="Winkelcentrum Bisonspoor — bedrijfsfilm door Jager Producties"
+                  src="https://player.vimeo.com/video/1014752844?title=0&byline=0&portrait=0&dnt=1"
+                  title="De Maaltuin — horecavideo door Jager Producties"
                   loading="lazy"
                   allow="autoplay; fullscreen; picture-in-picture"
                   allowFullScreen
