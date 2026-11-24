@@ -48,7 +48,7 @@ export default function Header() {
       className={`fixed inset-x-0 top-0 z-50 border-b transition-[background-color,border-color] duration-300 ${
         solid
           ? "border-ink/10 bg-coal"
-          : "border-transparent bg-gradient-to-b from-coal/60 to-transparent"
+          : "border-transparent bg-gradient-to-b from-coal/60 to-transparent bg-origin-border"
       }`}
     >
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 md:px-8">

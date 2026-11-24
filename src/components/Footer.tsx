@@ -1,38 +1,11 @@
 import { EMAIL, KVK, TEL } from "@/lib/site";
 
-const CREDITS: [string, string][] = [
-  ["Concept & regie", "Remy Jager"],
-  ["Camera", "Remy Jager"],
-  ["Montage & kleur", "Remy Jager"],
-  ["Hoofdrol", "Jouw verhaal"],
-];
-
-/** Footer als aftiteling: end credits van de pagina. */
+/** Footer: contactgegevens en KvK. */
 export default function Footer() {
   return (
     <footer className="border-t border-line bg-coal">
       <div className="mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-24">
-        <p className="text-center font-mono text-[11px] uppercase tracking-[0.3em] text-dim">
-          — Aftiteling —
-        </p>
-
-        <dl className="mx-auto mt-10 max-w-md space-y-3">
-          {CREDITS.map(([role, name]) => (
-            <div
-              key={role}
-              className="flex items-baseline justify-between gap-6 text-sm"
-            >
-              <dt className="font-mono text-[12px] uppercase tracking-[0.18em] text-dim">
-                {role}
-              </dt>
-              <dd className="font-display text-base uppercase tracking-[0.08em] text-ink">
-                {name}
-              </dd>
-            </div>
-          ))}
-        </dl>
-
-        <div className="mt-12 text-center">
+        <div className="text-center">
           <a
             href={`mailto:${EMAIL}`}
             className="font-display text-2xl uppercase tracking-wide text-amber hover:text-ink sm:text-3xl"
