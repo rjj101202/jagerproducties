@@ -53,3 +53,26 @@ Zet een lang, uniek wachtwoord in `ADMIN_PASSWORD`. Daarmee log je in op
 Factuurnummers lopen automatisch op (`2026-001`, `2026-002`, …). Verstuurde
 facturen zijn bewust niet meer te bewerken of te verwijderen — dat hoort zo
 voor je administratie. Opnieuw versturen (bijv. als herinnering) kan wel.
+
+# Outreach — automatisch nieuwe klanten mailen
+
+Een Claude-routine zoekt elke werkdag bedrijven en events, laat hun website
+scannen (`/api/agent/scan`: video's, e-mailadressen, tekst) en levert per
+organisatie een persoonlijke mail af (`/api/agent/prospects`). Die staat
+daarna op **Admin → Outreach** met status *klaar*.
+
+De verzendrun (`/api/cron/outreach`, Vercel Cron, werkdagen 09:00 UTC)
+verstuurt via Resend wat minstens 2 uur klaarstaat, tot het maximum per dag
+dat je op de outreach-pagina instelt. Tot dat moment kun je elke mail
+aanpassen, direct versturen of afwijzen. Met het vinkje "automatisch
+versturen" zet je de verzending in één keer stil.
+
+Ingebouwde veiligheden: elk domein en e-mailadres maar één keer (ook nooit
+naar bestaande klanten), alleen adressen op het eigen domein van de
+organisatie, max 25 nieuwe prospects per dag, en elke mail heeft een
+afmeldlink (`/afmelden`) plus one-click-afmelden in de mailclient.
+
+Omgevingsvariabelen: `AGENT_SECRET` (Bearer-token voor de routine) en
+`CRON_SECRET` (Vercel Cron). De routineprompt staat in
+`docs/outreach-routine-prompt.md`; pas je die aan, zet hem dan ook opnieuw in
+de routine op claude.ai/code/routines.
