@@ -64,6 +64,10 @@ async function zoekAdressen(host: string): Promise<{ address: string }[]> {
         } catch (e) {
           const code = (e as NodeJS.ErrnoException).code;
           if (code === "ENOTFOUND") throw new Error(`Domein ${host} bestaat niet.`);
+          // Op Vercel komt een niet-bestaand domein vaak terug als EBUSY.
+          if (poging >= 4 && code === "EBUSY") {
+            throw new Error(`Domein ${host} niet gevonden (bestaat waarschijnlijk niet; niet raden).`);
+          }
           if (poging >= 4 || (code !== "EBUSY" && code !== "EAI_AGAIN")) throw e;
           await new Promise((r) => setTimeout(r, 300 * poging));
         }
