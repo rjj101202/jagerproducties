@@ -32,12 +32,15 @@ Gebruik altijd de host https://www.jagerproducties.nl (met www).
    - mkb-bedrijven met een product of ambacht dat zich goed laat filmen (maakbedrijven, foodproducenten, restaurants, ateliers, kwekerijen)
    - stichtingen en goede doelen met een actie of benefietevenement
    Varieer ook in regio over heel Nederland.
+
+   RAAD NOOIT DOMEINNAMEN. Scan alleen URL's die letterlijk in een zoekresultaat of in externeLinks van een scan voorkwamen. Zoekresultaten bestaan vaak uit vacaturebanken, nieuwssites en agenda's in plaats van de organisaties zelf. Gebruik die dan als LIJSTPAGINA: scan zo'n pagina (bijvoorbeeld een evenementenagenda van een regio, het verenigingsoverzicht of de sportverenigingenpagina van een gemeente, een sponsorpagina van een club of festival, een ondernemersvereniging met ledenlijst) en neem uit "externeLinks" de echte websites van de organisaties. Eén goede lijstpagina levert vaak 10 tot 40 kandidaten op. Sponsorpagina's van clubs en festivals zijn extra waardevol: dat zijn lokale bedrijven die al zichtbaarheid zoeken.
+
    Sla over: grote concerns en ketens (die hebben een eigen marketingafdeling of bureau), overheden, scholen, mediabedrijven en andere videoproducenten, en organisaties waar je niets concreets over kunt vinden.
 
 3. Scan per kandidaat de website via de backend (haal sites NOOIT zelf op met curl; dat is geblokkeerd):
    curl -s -H "Authorization: Bearer $JAGER_AGENT_SECRET" "https://www.jagerproducties.nl/api/agent/scan?url=<website>"
-   -> { ok, url, titel, beschrijving, videos: [{soort, bron, pagina}], youtubeKanaal, emails, paginas, tekst }
-   Bij ok:false of een foutmelding: sla deze kandidaat over.
+   -> { ok, url, titel, beschrijving, videos: [{soort, bron, pagina}], youtubeKanaal, emails, paginas, externeLinks, tekst }
+   Bij ok:false of een foutmelding: sla deze kandidaat over. Scan kandidaten één voor één of met hooguit drie tegelijk.
    Beoordeel:
    - videos leeg: er staat geen video op de site. Dit is de sterkste aanleiding.
    - wel video's: kijk of er toch een duidelijke kans is (bijvoorbeeld een event zonder aftermovie van de vorige editie, of een bedrijf met vacatures maar zonder recruitmentvideo). Zie je die kans niet, sla de kandidaat dan over.

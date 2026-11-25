@@ -19,6 +19,7 @@ export type ScanResultaat = {
   youtubeKanaal: string | null;
   emails: string[];
   paginas: string[];
+  externeLinks: string[];
   tekst: string;
 };
 
@@ -46,6 +47,35 @@ function isPrivaat(ip: string): boolean {
   );
 }
 
+/**
+ * DNS-lookup met cache en herkansing. Op Vercel gaf lookup bij meerdere
+ * gelijktijdige aanvragen geregeld EBUSY/EAI_AGAIN, waardoor gezonde sites
+ * als "niet te lezen" terugkwamen.
+ */
+const dnsCache = new Map<string, Promise<{ address: string }[]>>();
+
+async function zoekAdressen(host: string): Promise<{ address: string }[]> {
+  let p = dnsCache.get(host);
+  if (!p) {
+    p = (async () => {
+      for (let poging = 1; ; poging++) {
+        try {
+          return await lookup(host, { all: true });
+        } catch (e) {
+          const code = (e as NodeJS.ErrnoException).code;
+          if (code === "ENOTFOUND") throw new Error(`Domein ${host} bestaat niet.`);
+          if (poging >= 4 || (code !== "EBUSY" && code !== "EAI_AGAIN")) throw e;
+          await new Promise((r) => setTimeout(r, 300 * poging));
+        }
+      }
+    })();
+    if (dnsCache.size > 500) dnsCache.clear();
+    dnsCache.set(host, p);
+    p.catch(() => dnsCache.delete(host));
+  }
+  return p;
+}
+
 async function controleerUrl(raw: string): Promise<URL> {
   const url = new URL(raw);
   if (url.protocol !== "http:" && url.protocol !== "https:") {
@@ -54,7 +84,7 @@ async function controleerUrl(raw: string): Promise<URL> {
   if (url.port && url.port !== "80" && url.port !== "443") {
     throw new Error("Afwijkende poort niet toegestaan.");
   }
-  const adressen = await lookup(url.hostname, { all: true });
+  const adressen = await zoekAdressen(url.hostname);
   if (adressen.length === 0 || adressen.some((a) => isPrivaat(a.address))) {
     throw new Error("Adres niet bereikbaar of niet toegestaan.");
   }
@@ -183,14 +213,23 @@ export async function scanWebsite(invoer: string): Promise<ScanResultaat> {
   const paginas = [home.url];
   let videos = vindVideos(home.html, home.url);
   let emails = vindEmails(home.html);
-  const extra = interessanteLinks(home.html, basis).slice(0, 4);
+  const extra = interessanteLinks(home.html, basis)
+    .filter((u) => u !== home.url)
+    .slice(0, 5);
+  // Geen contactpagina gelinkt (bv. menu via JavaScript)? Probeer de gangbare paden.
+  if (!extra.some((u) => /contact/i.test(u))) {
+    extra.unshift(`${basis.origin}/contact`);
+  }
 
-  const resultaten = await Promise.allSettled(extra.map((u) => haalOp(u)));
-  for (const r of resultaten) {
-    if (r.status !== "fulfilled") continue;
-    paginas.push(r.value.url);
-    videos = videos.concat(vindVideos(r.value.html, r.value.url));
-    emails = emails.concat(vindEmails(r.value.html));
+  // Twee tegelijk: rustiger voor de site en voor DNS dan alles parallel.
+  for (let i = 0; i < extra.length; i += 2) {
+    const resultaten = await Promise.allSettled(extra.slice(i, i + 2).map((u) => haalOp(u)));
+    for (const r of resultaten) {
+      if (r.status !== "fulfilled" || paginas.includes(r.value.url)) continue;
+      paginas.push(r.value.url);
+      videos = videos.concat(vindVideos(r.value.html, r.value.url));
+      emails = emails.concat(vindEmails(r.value.html));
+    }
   }
 
   const kanaal = home.html.match(
@@ -211,6 +250,33 @@ export async function scanWebsite(invoer: string): Promise<ScanResultaat> {
     youtubeKanaal: kanaal ? kanaal[0] : null,
     emails: [...new Set(emails)].slice(0, 15),
     paginas,
+    externeLinks: externeSites(home.html, basis),
     tekst: leesbareTekst(home.html).slice(0, 6000),
   };
+}
+
+/** Platforms die nooit zelf een prospect zijn. */
+const GEEN_PROSPECT =
+  /(^|\.)(facebook|instagram|linkedin|twitter|x|youtube|youtu|tiktok|vimeo|google|apple|microsoft|whatsapp|pinterest|wikipedia|indeed|jobbird|werkzoeken|nationalevacaturebank|ticketmaster|eventbrite|paylogic|wordpress|wix|jouwweb|mailchimp|cookiebot|gstatic|cloudflare|bit|linktr)\.[a-z.]+$/i;
+
+/**
+ * Externe sites waarnaar een pagina linkt, als homepage-URL. Handig op
+ * lijstpagina's (evenementenagenda, verenigingsoverzicht van een gemeente):
+ * zo komt de routine aan echte websites in plaats van te raden.
+ */
+function externeSites(html: string, basis: URL): string[] {
+  const eigen = basis.hostname.replace(/^www\./, "");
+  const sites = new Map<string, string>();
+  for (const m of html.matchAll(/<a\s[^>]*href\s*=\s*["'](https?:\/\/[^"'#\s]+)["']/gi)) {
+    try {
+      const u = new URL(m[1]);
+      const host = u.hostname.toLowerCase().replace(/^www\./, "");
+      if (!/\.[a-z]{2,}$/.test(host)) continue;
+      if (host === eigen || host.endsWith(`.${eigen}`) || GEEN_PROSPECT.test(host)) continue;
+      if (!sites.has(host)) sites.set(host, `${u.protocol}//${u.hostname}/`);
+    } catch {
+      /* ongeldige href */
+    }
+  }
+  return [...sites.values()].slice(0, 80);
 }
